@@ -5,13 +5,6 @@ class Solution:
             runningSum.append(nums[i]+runningSum[-1])
         return runningSum
 
-class Solution2:
-    def runningSum(self, nums):
-        ans = [0]*len(nums)
-        ans[0] = nums[0]
-        for i in range(1,len(nums)):
-            ans[i] = nums[i]+ans[-1]
-        return ans
 solution = Solution2()
 print(solution.runningSum([1,2,3,4]))
 
