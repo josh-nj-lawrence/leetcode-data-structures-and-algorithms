@@ -8,6 +8,6 @@ class Solution:
         return ans/k
 
 solution = Solution()
-print(solution.findMaxAverage([1,12,-5,-6,50,3], 4))
+print(solution.findMaxAverage([5], 1))
 
 # Results: 92.33 % time (1220 ms) and 51.27% space (26.1 MB)
