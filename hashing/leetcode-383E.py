@@ -14,4 +14,4 @@ class Solution:
 sol = Solution()
 print(sol.canConstruct("aa","ab"))
 
-# Results: 55.89% time (69ms) 48.44% space (14.2MB)
+# Results: 55.89% time (69ms) 48.44% space (14.2MB) 
