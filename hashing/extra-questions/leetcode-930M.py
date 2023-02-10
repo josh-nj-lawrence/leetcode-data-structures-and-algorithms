@@ -1,9 +1,18 @@
 from typing import List
-from collections import defaultdict 
+from collections import Counter 
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        prefix = [nums[0]]
-        for i in range(1, len(nums)):
-            prefix[i] = nums[i] + prefix[i-1]
-            ans = 0
-        # Two pointer itterate over all contiguous sub arrays and add to ans if criteria is met 
+        prefix = [0]
+        for x in nums:
+            prefix.append(prefix[-1] + x)
+        ans = 0
+        counts = Counter()
+        for x in prefix:
+            ans += counts[x]
+            counts[x+goal] += 1
+        return ans
+
+solution = Solution()
+print(solution.numSubarraysWithSum([1,0,1,0,1], goal = 2))
+
+# Results: 60.35% time (310ms) 5.89% space (19MB)
