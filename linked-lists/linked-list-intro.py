@@ -67,3 +67,30 @@ def add_double_node(node,node_to_add):
     node_to_add.prev = prev
     node.prev = node_to_add
     prev.next = node_to_add
+
+
+# Linked Lists with Sentinel Nodes
+"""
+    Sentinal nodes point to the head and tail nodes of the linked list
+    and are not elements of the list themselves
+    head points to first element in the list
+    tail points to last element in the list
+"""
+
+head = Double_ListNode(None)
+tail = Double_ListNode(None)
+head.next = tail
+tail.prev = head
+
+# Traverse list with dummy head var
+def get_sum_dummy(head):
+    ans = 0
+    curr = head
+    while curr:
+        ans += curr.val
+        curr = curr.next
+    return ans
+
+head = one
+print("get sum with dummy head traversal:")
+print(get_sum_dummy(head))
