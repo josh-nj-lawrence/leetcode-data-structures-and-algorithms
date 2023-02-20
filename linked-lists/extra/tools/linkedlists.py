@@ -5,22 +5,26 @@ class ListNode:
     def __init__(self,val):
         self.val = val
         self.next = None
+    # Print Method
+    def __str__(self):
+        res = ""
+        ptr = self
+        while ptr:
+            res += str(ptr.val) + " -> "
+            ptr = ptr.next
+        res = res.strip(" -> ")
+
+        if len(res):
+            return res
+        else:
+            return "Null"
+
 # Doubly linked list
 class dListNode:
     def __init__(self,val):
         self.val = val
         self.next = None
         self.prev = None
-# Print Method
-def print_list(head):
-    if head is None:
-        print("Null")
-    ans = ""
-    while head.next:
-        ans += str(head.val) + " -> "
-        head = head.next
-    ans += str(head.val)
-    print(ans)
 
 # Build LList from Array input
 def build_ll(arr:List) -> ListNode:
