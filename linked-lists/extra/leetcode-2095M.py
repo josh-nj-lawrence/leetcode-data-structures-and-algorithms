@@ -1,5 +1,6 @@
 from tools.linkedlists import build_ll, print_list
 from typing import Optional
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
