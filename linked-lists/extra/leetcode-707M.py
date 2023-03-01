@@ -6,8 +6,8 @@ class MyListNode:
 
 class MyLinkedList:
     def __init__(self):
-        self.head = None
-        self.sentinel = MyListNode(0) # Sentinal node
+        self.size = 0
+        self.head = MyListNode(0) # Sentinal node
         
 
     def __str__(self):
@@ -24,54 +24,49 @@ class MyLinkedList:
     
 
     def get(self, index: int) -> int:
-        curr = self.head
-        try:
-            if index == 0:
-                return curr.val
-            for i in range(index):
-                curr = curr.next
-            return curr.val
-        except AttributeError:
+        if index < 0 or index >= self.size:
             return -1
 
+        curr = self.head
+        for _ in range(index+1):
+            curr = curr.next
+        return curr.val
+
     def addAtHead(self, val: int) -> None:
-        nextNode = self.head
-        self.head = MyListNode(val)
-        self.sentinel = self.head
-        self.head.next = nextNode
+        self.addAtIndex(0,val)
 
     def addAtTail(self, val: int) -> None:
-        curr = self.sentinel.next
-        try:
-            while curr.next:
-                curr = curr.next
-        except AttributeError:
-            curr = MyListNode(val)
-        curr.next = MyListNode(val)
+        self.addAtIndex(self.size, val)
 
     def addAtIndex(self, index: int, val: int) -> None:
-        curr = self.head
-        prev = self.sentinel
+        if index > self.size:
+            return
+        if index < 0:
+            index = 0
 
-        if index == 0:
-            self.addAtHead(val)
+        self.size += 1
+
+        pred = self.head
         for _ in range(index):
-            prev = curr
-            curr = curr.next
-        prev.next = MyListNode(val)
-        prev.next.next = curr
+            pred = pred.next
+        
+        to_add = MyListNode(val)
+        # Insert
+        to_add.next = pred.next
+        pred.next = to_add
 
     def deleteAtIndex(self, index: int) -> None:
-        curr = self.head
-        prev = self.sentinel
-        if index == 0:
-            self.head = self.head.next
-            self.sentinel = self.head
-        for _ in range(index):
-            prev = curr
-            curr = curr.next
-        prev.next = curr.next
+        if index < 0 or index >= self.size:
+            return
         
+        self.size -= 1
+
+        pred = self.head
+        for _ in range(index):
+            pred = pred.next
+        
+        # Delete the node
+        pred.next = pred.next.next
 
 obj = MyLinkedList()
 print(obj)
@@ -81,24 +76,4 @@ print(obj)
 
 print(obj.get(0))
 
-# print("noaisofjasdf")
-# obj.deleteAtIndex(0)
-# print(obj)
-# obj.addAtTail(3)
-# print(obj)
-# obj.addAtIndex(1,2)
-# print(obj)
-
-# print(obj.get(1))
-# obj.deleteAtIndex(1)
-# print(obj.get(1))
-# print(obj)
-
-
-# Your MyLinkedList object will be instantiated and called as such:
-# obj = MyLinkedList()
-# param_1 = obj.get(index)
-# obj.addAtHead(val)
-# obj.addAtTail(val)
-# obj.addAtIndex(index,val)
-# obj.deleteAtIndex(index)
+# Results: 69.69% time (179ms) 81.6% space (14.6MB)
