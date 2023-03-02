@@ -19,4 +19,4 @@ class Solution:
 sol = Solution()
 print(sol.makeGood("aAbBcC"))
 
-# Results: 5.22% (91 ms) 10.66% space (14 MB)
+# Results: 5.22% (91 ms) 10.66% space (14 MB) 
