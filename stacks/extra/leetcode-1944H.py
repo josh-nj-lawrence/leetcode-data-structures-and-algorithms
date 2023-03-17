@@ -22,5 +22,4 @@ class Solution:
 
 sol = Solution()
 print(sol.canSeePersonsCount([3,1,5,8,6]))
-
 # Results: 89.19% time (1153ms) 38.65% space (29.7MB)
