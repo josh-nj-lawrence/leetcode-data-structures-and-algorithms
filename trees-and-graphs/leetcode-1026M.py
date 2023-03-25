@@ -23,4 +23,4 @@ class Solution:
         helper(root,root.val,root.val)
         return self.result
     
-# Results: 83.89% time (37ms) 55.15% space (19.9MB)
+# Results: 83.89% time (37ms) 55.15% space(19.9MB)
