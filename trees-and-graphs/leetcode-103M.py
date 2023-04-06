@@ -1,3 +1,4 @@
+from collections import deque()
 from typing import Optional, List
 # Definition for a binary tree node.
 class TreeNode:
@@ -7,6 +8,5 @@ class TreeNode:
         self.right = right
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        
-        pass
+        queue = deque([root,])
     
